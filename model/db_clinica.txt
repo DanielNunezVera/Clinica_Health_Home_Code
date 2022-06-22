@@ -1,0 +1,105 @@
+CREATE DATABASE db_clinica_healt_home;
+
+CREATE TABLE `admin_sistema` (
+  `user` varchar(15) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),
+   PRIMARY KEY (`user`)
+);
+
+CREATE TABLE `consultorios` (
+  `id_consult` varchar(3) NOT NULL,
+  `estado_consult` tinyint(1) NOT NULL
+   `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `actualizacion` DATETIME(6),
+   `delete`  DATETIME(6),
+   PRIMARY KEY (`id_consult`)
+);
+
+CREATE TABLE `especialidades`(
+  `id_espec` tinyint(2) NOT NULL AUTO_INCREMENT,
+  `descrip_espec` varchar(30) NOT NULL,
+  `costo_espec` int(6) NOT NULL,
+  `estado_espec` tinyint(1) NOT NULL,
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),
+   PRIMARY KEY (`id_espec`)  
+); 
+
+CREATE TABLE `tipo_doc` (
+  `t_doc` varchar(5) NOT NULL,
+  `descrip_tdoc` varchar(64) NOT NULL,
+   PRIMARY KEY (`t_doc`)  
+);
+
+CREATE TABLE `personas` (
+  `id_pers` BIGINT(8) NOT NULL AUTO_INCREMENT,
+  `t_doc_pers` varchar(5) NOT NULL,
+  `num_doc_pers` varchar(20) NOT NULL,
+  `p_nombre_pers` varchar(20) NOT NULL,
+  `s_nombre_pers` varchar(20) DEFAULT NULL,
+  `p_apellido_pers` varchar(20) NOT NULL,
+  `s_apellido_pers` varchar(20) DEFAULT NULL,
+  `tel_pers` BIGINT(10) NOT NULL,
+  `correo_pers` varchar(30) NOT NULL,
+  `estado_pers` tinyint(1) NOT NULL,
+  `rol_pers` varchar(64) NOT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),  
+   PRIMARY KEY (`id_pers`),
+   FOREIGN KEY (`t_doc_pers`) REFERENCES `tipo_doc`(`t_doc`)
+);
+
+CREATE TABLE `profesionales` (
+  `id_prof` BIGINT(8) NOT NULL,
+  `dias_laborales` varchar(20) NOT NULL,
+  `franja_horaria` varchar(20) NOT NULL,
+  `id_consult` varchar(3) NOT NULL,
+  `id_espec` tinyint(2) NOT NULL,
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),
+   FOREIGN KEY (`id_prof`) REFERENCES `personas`(`id_pers`),
+   PRIMARY KEY (`id_prof`)
+);
+
+CREATE TABLE `pacientes` (
+  `id_pac` BIGINT(8) NOT NULL,
+  `genero` char(1) NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),
+   FOREIGN KEY (`id_pac`) REFERENCES `personas`(`id_pers`), 
+   PRIMARY KEY (`id_pac`)   
+);
+
+CREATE TABLE `auxiliares_admin` (
+  `id_aux` BIGINT(8) NOT NULL,
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),
+   FOREIGN KEY (`id_aux`) REFERENCES `personas`(`id_pers`),
+   PRIMARY KEY (`id_aux`)
+);
+
+CREATE TABLE `citas` (
+  `id_cita` BIGINT(11) NOT NULL,
+  `fecha_cita` date NOT NULL,
+  `hora_cita` time NOT NULL,
+  `estado_pago_cita` tinyint(1) NOT NULL,
+  `asistencia_cita` tinyint(1) NOT NULL,
+  `id_prof` BIGINT(8) NOT NULL, 
+  `id_pac` BIGINT(8) NOT NULL,  
+  `creacion` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizacion` DATETIME(6),
+  `delete` DATETIME(6),
+   PRIMARY KEY (`id_cita`),
+   FOREIGN KEY (`id_prof`) REFERENCES `profesionales`(`id_prof`),
+   FOREIGN KEY (`id_pac`) REFERENCES `pacientes`(`id_pac`)   
+);
