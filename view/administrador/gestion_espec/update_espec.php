@@ -65,4 +65,4 @@ include "../../../controller/sesiones/sesiones_admin.php";
     </main>
     <script src="../../assets/js-general/menu-responsive.js"></script>
 </body>
-</html>
+</html> 
