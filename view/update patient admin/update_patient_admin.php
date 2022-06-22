@@ -42,19 +42,19 @@
                     <div class="contact-wrapper animated bounceInUp">
                         <div class="contact-form">
                             <form action="" method="POST">
-                                <p>
+                                <!-- <p>
                                     <label>Tipo de documento</label>
                                     <input type="text" name="t_doc" disabled>
-                                </p>
+                                </p> -->
                                 <p>
                                     <label>N° documento</label>
                                     <input type="number" name="num_doc" disabled>
                                 </p>
                                 <p>
-                                    <label>Primer nombre</label>
+                                    <label>Nombre completo</label>
                                     <input type="text" name="p_nombre" required>
                                 </p>
-                                <p>
+                                <!-- <p>
                                     <label>Segundo nombre</label>
                                     <input type="text" name="s_nombre">
                                 </p>
@@ -65,14 +65,14 @@
                                 <p>
                                     <label>Segundo apellido</label>
                                     <input type="text" name="s_apellido">
+                                </p> -->
+                                <p>
+                                    <label>Email</label>
+                                    <input type="email" name="email" required>
                                 </p>
                                 <p>
                                     <label>Teléfono</label>
                                     <input type="tel" name="tel" required>
-                                </p>
-                                <p>
-                                    <label>Email</label>
-                                    <input type="email" name="email" required>
                                 </p>
                                 <p>
                                     <label>Fecha de nacimiento</label>
