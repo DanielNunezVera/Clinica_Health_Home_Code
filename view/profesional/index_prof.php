@@ -48,6 +48,8 @@ include "../../controller/sesiones/sesiones_prof.php";
                         <br>
                         <a href="" class="boton">Gestión Agenda</a>
                         <br>
+                        <a href="" class="boton">Gestionamiento</a>
+                        <br>
                     </div>
                 </div>
                 <div class="caja2">
