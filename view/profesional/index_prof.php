@@ -40,13 +40,9 @@ include "../../controller/sesiones/sesiones_prof.php";
                 <div class="caja1">
                     <div class="row">
                         <h1>Bienvenido - <?php echo $_SESSION['p_nombre_pers'], $_SESSION['p_apellido_pers']?></h1>
-                        <a href="" class="boton">Gestión Usuarios</a>
+                        <a href="" class="boton">Actualizar Datos</a>
                         <br>
-                        <a href="" class="boton">Gestión Especialidades</a>
-                        <br>
-                        <a href="" class="boton">Gestión Consultorios</a>
-                        <br>
-                        <a href="" class="boton">Gestión Agenda</a>
+                        <a href="citas_programadas/citas_programadas.php" class="boton">Citas Programadas</a>
                         <br>
                     </div>
                 </div>
