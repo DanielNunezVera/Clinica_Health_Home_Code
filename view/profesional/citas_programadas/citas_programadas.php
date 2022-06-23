@@ -50,13 +50,12 @@ include "../../../controller/conexion-db/db_connect.php";
                     <div class="row">
                         <div class="col-lg-12">
                             <?php
-                                $consulta = "SELECT * FROM citas WHERE id_prof = $_SESSION[id_pers]";
-                                $resultado = mysqli_query($conectar, $consulta);
-                                $fila = mysqli_fetch_assoc($resultado);
-                                $consulta2 = "SELECT * FROM personas JOIN citas WHERE id_pers = id_pac";
+                                //$consulta = "SELECT * FROM citas WHERE id_prof = $_SESSION[id_pers]";
+                                //$resultado = mysqli_query($conectar, $consulta);
+                                //$fila = mysqli_fetch_assoc($resultado);
+                                $consulta2 = "SELECT * FROM citas INNER JOIN personas ON citas.id_prof=$_SESSION[id_pers] AND citas.id_pac=personas.id_pers;";
                                 $resultado2 = mysqli_query($conectar, $consulta2);
-                                //$datos = mysqli_fetch_assoc($resultado2);
-                                if (mysqli_num_rows($resultado)>0) {
+                                if (mysqli_num_rows($resultado2)>0) {
                                     echo "<table id='example' class='table table-bordered  display nowrap' cellspacing='0' width='100%'>
                                             <thead>
                                                 <tr>
@@ -71,10 +70,10 @@ include "../../../controller/conexion-db/db_connect.php";
                                         <tbody>";
                                         while ($datos = mysqli_fetch_assoc($resultado2)) {
                                             echo "<tr>
-                                                    <td>";echo $datos['p_nombre_pers'], $datos['s_nombre_pers'], $datos['p_apellido_pers'], $datos['s_apellido_pers']; echo "</td>
+                                                    <td>";echo $datos['p_nombre_pers']." ", $datos['s_nombre_pers']." ", $datos['p_apellido_pers']." ", $datos['s_apellido_pers']; echo "</td>
                                                     <td>";echo $datos['num_doc_pers']; echo "</td>
-                                                    <td>";echo $fila['fecha_cita']; echo"</td>
-                                                    <td>";echo $fila['hora_cita']; echo"</td>
+                                                    <td>";echo $datos['fecha_cita']; echo"</td>
+                                                    <td>";echo $datos['hora_cita']; echo"</td>
                                                     <td>";echo"</td>
                                                     <td>";
                                                         echo "<button type='submit'>Asistencia</button>";
