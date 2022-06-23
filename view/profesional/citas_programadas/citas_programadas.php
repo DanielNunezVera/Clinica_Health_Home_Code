@@ -76,7 +76,7 @@ include "../../../controller/conexion-db/db_connect.php";
                                                     <td>";echo $datos['hora_cita']; echo"</td>
                                                     <td>";echo"</td>
                                                     <td>";
-                                                        echo "<button type='submit'>Asistencia</button>";
+                                                        echo "<a href=''>Confirmar asistencia</a>";
                                                     echo "</td>
                                                 </tr>";
                                         }
