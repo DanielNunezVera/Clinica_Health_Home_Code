@@ -25,7 +25,7 @@
         }
         
 
-        $resultado = mysqli_query($conectar, $consulta) or die(mysqli_error);
+        $resultado = mysqli_query($conectar, $consulta);
 
         $fila = mysqli_fetch_assoc($resultado);
 
@@ -37,6 +37,7 @@
         echo "<br>"; */
        
         if($filas==1){
+            $_SESSION['id_pers'] = $fila['id_pers'];
             $_SESSION['user'] = $fila['user'];
             $_SESSION['t_doc_pers'] = $fila['t_doc_pers'];
             $_SESSION['num_doc_pers'] = $fila['num_doc_pers'];
@@ -52,6 +53,7 @@
             $_SESSION['actualizacion'] = $fila['actualizacion'];
             $_SESSION['delete'] = $fila['delete'];
             if($t_rol == 1){
+                //$_SESSION['id_pers'];
                 header('Location: ../../view/profesional/index_prof.php');
             }
             elseif($t_rol == 2){
