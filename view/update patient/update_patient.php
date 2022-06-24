@@ -107,6 +107,11 @@
                                         Actualizar
                                     </button>
                                 </p>
+                                <p class="block">
+                                    <button name="update" type="submit">
+                                        Actualizar
+                                    </button>
+                                </p>
                             </form>
                         </div>
                     </div>
