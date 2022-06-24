@@ -7,9 +7,11 @@ include "../../controller/sesiones/sesiones_aux.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auxiliar administrativo</title>
+    <title>Citas Profesionales</title>
+
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../assets/css/auxiliar-admin-css/estilos.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@800&display=swap');
@@ -25,11 +27,11 @@ include "../../controller/sesiones/sesiones_aux.php";
                 <i class="fas fa-bars" id="btn_menu"></i>
                 <div id="back_menu"></div>
                 <nav id="nav">
-                    <img src="../assets/images/icon_auxadmin.png" alt="">
+                    <img src="../assets/images/ajustes.png" alt="">
                     <ul>
-                        <li><a href="index_aux.php" >Inicio</a></li>
+                        <li><a href="index_aux.php">Inicio</a></li>
                         <li><a href="#">Actualizar datos</a></li>
-                        <li><a href="../../controller/sesiones/cerrarsesion.php">Cerrar sesión</a></li>
+                        <li><a href="../../controller/sesiones/cerrarsesion.php">Cerrar sesion</a></li>
                     </ul>
                 </nav>
             </div>
@@ -38,17 +40,25 @@ include "../../controller/sesiones/sesiones_aux.php";
     <main>
         <div class="container__cover">
             <div class="cover"> 
-                <div class="caja1">
-                    <div class="row">
-                        <h1>Bienvenido - <?php echo $_SESSION['p_nombre_pers']." ". $_SESSION['p_apellido_pers']?></h1>
-                        <a href="validarprof.php" class="boton">Citas Profesionales</a>
-                        <br>
-                        <a href="validarpac.php" class="boton">Citas Pacientes</a>
+                <div class="caja3">
+                    <h1>Citas Profesionales</h1>
+                    <div class="contenedor__login-register">
+                        <form action="citasprof.php" class="" method="POST">
+                            <select class="Selectordoc" name="tipo_doc" id="tipo_doc">
+                                <option >Elige el tipo de documento</option>
+                                <option value="CC">Cedula de ciudadania</option>
+                                <option value="TI">Tarjeta de identidad</option>
+                                <option value="PAP">Pasaporte</option>
+                                <option value="CE">Cedula de extranjeria</option>
+                            </select>
+                            <br>
+                            <input type="text" placeholder="Numero de documento" id="numerodedocuemto" name="num_doc_pers" class="contenedor1"> 
+                            <br>
+                            <br>
+                            <input type="submit" name="consultar" class="boton4" value="Consultar">
+                        </form>
                     </div>
                 </div>
-                <div class="caja2">
-                    <img src="../assets/images/auxadmin.png" alt="">
-                </div> 
             </div> 
         </div>
     </main>
