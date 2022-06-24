@@ -43,20 +43,20 @@ include "../../../controller/sesiones/sesiones_admin.php";
                     <h1>Gestión Usuarios</h1>
                     <div class="contenedor__login-register">
                         <form action="../../../controller/administrador/ge_u.php" class="" method="POST">
-                            <select class="Selectordoc" name="tipo_rol" id="tipo_rol">
-                                <option >Rol</option>
+                            <select class="Selectordoc" name="tipo_rol" id="tipo_rol" required>
+                                <option value="">Rol</option>
                                     <option value=1>Profesional</option>
                                     <option value=2>Auxiliar administrativo</option>
                                     <option value=3>Paciente</option>
                                 </select>
-                            <select class="Selectordoc" name="tipo_doc" id="tipo_doc">
-                                <option >Elige el tipo de documento</option>
+                            <select class="Selectordoc" name="tipo_doc" id="tipo_doc" required>
+                                <option value="">Elige el tipo de documento</option>
                                 <option value="CC">Cedula de ciudadania</option>
                                 <option value="TI">Tarjeta de identidad</option>
                                 <option value="PAP">Pasaporte</option>
                                 <option value="CE">Cedula de extranjeria</option>
                             </select>
-                            <input type="text" placeholder="Numero de documento" id="numerodedocuemto" name="num_doc_pers" class="contenedor1"> 
+                            <input type="text" placeholder="Numero de documento" id="numerodedocuemto" name="num_doc_pers" class="contenedor1" required> 
                             <input type="submit" name="consultar" class="boton4" placeholder="Consultar">
                         </form>
                     </div>
@@ -67,5 +67,6 @@ include "../../../controller/sesiones/sesiones_admin.php";
     <script src="../../assets/js-general/menu-responsive.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../assets/js/sweetAlert2.js"></script>
+
 </body>
 </html>

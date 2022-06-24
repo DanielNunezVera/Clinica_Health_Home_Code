@@ -1,13 +1,14 @@
 <?php
 include "../../../controller/sesiones/sesiones_admin.php";
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar especialidad</title>
+    <title>Gestión Agenda</title>
+
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -39,38 +40,27 @@ include "../../../controller/sesiones/sesiones_admin.php";
         <div class="container__cover">
             <div class="cover"> 
                 <div class="caja3">
-                    <h1 class="titulo1">Actualizar especialidad</h1>
-                    <div class="contact-wrapper animated bounceInUp">
-                        <div class="contact-form">
-                            <form action="" method="POST">
-                                <p>
-                                    <label>Especialidad</label>
-                                    <input type="text" name="t_doc" disabled>
-                                </p>
-                                <p>
-                                    <label>Costo</label>
-                                    <input type="number" name="num_doc" disabled>
-                                </p>
-                                <p>
-                                    <label>Estado</label>
-                                    <select class="Selectorconsult" name="tipo_doc" id="tipo_doc">
-                                      <option >Seleccione</option>
-                                      <option value="ac">Activo</option>
-                                      <option value="dx">Inactivo</option>
-                                    </select>
-                                </p>
-                                <p class="block">
-                                    <button name="registrar" type="submit">
-                                        Actualizar
-                                    </button>
-                                </p>
-                            </form>
-                        </div>
+                    <h1>Gestión Agenda</h1>
+                    <div class="contenedor__login-register">
+                        <form action="" class="" method="POST">
+                            <select class="Selectordoc" name="tipo_doc" id="tipo_doc" required>
+                                <option value="">Elige el tipo de documento</option>
+                                <option value="CC">Cedula de ciudadania</option>
+                                <option value="PAP">Pasaporte</option>
+                                <option value="CE">Cedula de extranjeria</option>
+                            </select>
+                            <input type="text" placeholder="Numero de documento" id="numerodedocuemto" name="num_doc_pers" class="contenedor1" required> 
+                            <br>
+                            <br>
+                            <input onclick="agenda()" type="button" name="consultar" class="boton4" value="Consultar">
+                        </form>
                     </div>
                 </div>
             </div> 
         </div>
     </main>
     <script src="../../assets/js-general/menu-responsive.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src = "../assets/js/sweetAlert4.js"></script>
 </body>
 </html>

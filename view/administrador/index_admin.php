@@ -44,9 +44,9 @@ include "../../controller/sesiones/sesiones_admin.php";
                         <br>
                         <a href="gestion_espec/gestion_espec.php" class="boton">Gestión Especialidades</a>
                         <br>
-                        <a href="" class="boton">Gestión Consultorios</a>
+                        <a href="gestion_consult/gestion_consult.php" class="boton">Gestión Consultorios</a>
                         <br>
-                        <a href="" class="boton">Gestión Agenda</a>
+                        <a href="gestion_agenda/gestion_agenda.php" class="boton">Gestión Agenda</a>
                         <br>
                     </div>
                 </div>

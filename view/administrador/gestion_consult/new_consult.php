@@ -7,7 +7,8 @@ include "../../../controller/sesiones/sesiones_admin.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar especialidad</title>
+    <title>Nuevo Consultorio</title>
+
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -39,29 +40,17 @@ include "../../../controller/sesiones/sesiones_admin.php";
         <div class="container__cover">
             <div class="cover"> 
                 <div class="caja3">
-                    <h1 class="titulo1">Actualizar especialidad</h1>
+                    <h1 class="titulo1">Nuevo consultorio</h1>
                     <div class="contact-wrapper animated bounceInUp">
                         <div class="contact-form">
                             <form action="" method="POST">
                                 <p>
-                                    <label>Especialidad</label>
-                                    <input type="text" name="t_doc" disabled>
-                                </p>
-                                <p>
-                                    <label>Costo</label>
-                                    <input type="number" name="num_doc" disabled>
-                                </p>
-                                <p>
-                                    <label>Estado</label>
-                                    <select class="Selectorconsult" name="tipo_doc" id="tipo_doc">
-                                      <option >Seleccione</option>
-                                      <option value="ac">Activo</option>
-                                      <option value="dx">Inactivo</option>
-                                    </select>
+                                    <label>Id consultorio</label>
+                                    <input type="text" name="cons" disabled>
                                 </p>
                                 <p class="block">
                                     <button name="registrar" type="submit">
-                                        Actualizar
+                                        Registrar
                                     </button>
                                 </p>
                             </form>

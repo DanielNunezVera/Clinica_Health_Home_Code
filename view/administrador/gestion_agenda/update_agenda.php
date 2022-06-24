@@ -7,7 +7,7 @@ include "../../../controller/sesiones/sesiones_admin.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Usuarios</title>
+    <title>Actualizar Agenda</title>
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -40,53 +40,50 @@ include "../../../controller/sesiones/sesiones_admin.php";
         <div class="container__cover">
             <div class="cover"> 
                 <div class="caja3">
-                    <h1 class="titulo1">Nuevo auxiliar</h1>
+                    <h1 class="titulo1">Actualizar agenda</h1>
                     <div class="contact-wrapper animated bounceInUp">
                         <div class="contact-form">
-                            <form action="../../../controller/administrador/new_users.php" method="POST">
+                            <form action="gestion_agenda_alerta2.php" method="POST">
                                 <p>
-                                    <label>Tipo de documento</label>
-                                    <input type="text" name="t_doc" value=<?php if($_SESSION['doc_new'] == 'CC'){
-                                        echo 'Cedula&nbsp;de&nbsp;Ciudadania';
-                                    }elseif ($_SESSION['doc_new'] == 'TI') {
-                                        echo 'Tarjeta&nbsp;de&nbsp;Identidad';
-                                    }elseif ($_SESSION['doc_new'] == 'PAP') {
-                                        echo 'Pasaporte';
-                                    }elseif ($_SESSION['doc_new'] == 'CE') {
-                                        echo 'Cedula&nbsp;de&nbsp;Extranjeria';
-                                    }?> disabled>
+                                    <label>Nombres</label>
+                                    <input type="text" name="t_doc" value=" Andres Felipe"disabled>
                                 </p>
                                 <p>
-                                    <label>N° documento</label>
-                                    <input type="number" name="num_doc" value=<?php echo intval($_SESSION['num_doc_new'])?>  disabled>
+                                    <label>Apellidos</label>
+                                    <input type="text" name="num_doc" value="Sanchez Restrepo" disabled>
                                 </p>
                                 <p>
-                                    <label>Primer nombre</label>
-                                    <input type="text" name="p_nombre" required>
+                                    <label>Especialidad</label>
+                                    <input type="text" name="p_nombre" value="Medicina general" disabled>
                                 </p>
                                 <p>
-                                    <label>Segundo nombre</label>
-                                    <input type="text" name="s_nombre">
+                                    <label>Consultorio</label>
+                                    <input type="text" name="p_apellido" value="C01" disabled>
                                 </p>
                                 <p>
-                                    <label>Primer apellido</label>
-                                    <input type="text" name="p_apellido" required>
+                                    <label>Dia</label>
+                                    <input type="date" name="email" required>
                                 </p>
                                 <p>
-                                    <label>Segundo apellido</label>
-                                    <input type="text" name="s_apellido">
+                                    <label>Franja</label>
+                                    <select class="Selectorconsult" name="espec" id="espec" required>
+                                      <option value="">Seleccione</option>
+                                        <option value="">6 a.m - 2 p.m</option>
+                                        <option value="">8 a.m - 5 p.m</option>
+                                        <option value="">12 a.p - 8 p.m</option>
+                                    </select>
                                 </p>
                                 <p>
-                                    <label>Teléfono</label>
-                                    <input type="tel" name="tel" required>
-                                </p>
-                                <p>
-                                    <label>Email</label>
-                                    <input type="email" name="email" required>
+                                    <label>Estado agenda</label>
+                                    <select class="Selectorconsult" name="tipo_doc" id="tipo_doc">
+                                      <option >Seleccione</option>
+                                      <option value="ac">Activo</option>
+                                      <option value="dx">Inactivo</option>
+                                    </select>
                                 </p>
                                 <p class="block">
                                     <button name="registrar" type="submit">
-                                        Registrar
+                                        Actualizar
                                     </button>
                                 </p>
                             </form>
@@ -96,6 +93,8 @@ include "../../../controller/sesiones/sesiones_admin.php";
             </div> 
         </div>
     </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src = "../assets/js/sweetAlert4.js"></script>
     <script src="../../assets/js-general/menu-responsive.js"></script>
 </body>
 </html>

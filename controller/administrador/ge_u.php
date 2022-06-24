@@ -2,12 +2,23 @@
     include "../conexion-db/db_connect.php";
     session_start();
 
+    if ($_SESSION['estado_new'] == 1){
+        $_SESSION['estado_new'] == 2;
+        if($_SESSION['rol_new'] == 3){
+            header('Location: ../../view/administrador/gestion_usuarios/new_pac.php');
+        }
+        if($_SESSION['rol_new'] == 1){
+            header('Location: ../../view/administrador/gestion_usuarios/new_prof.php');
+        }
+        if($_SESSION['rol_new'] == 2){
+            header('Location: ../../view/administrador/gestion_usuarios/new_aux.php');
+        }
+    }
+
     if(isset($_POST['consultar'])){
-        $t_rol =($_REQUEST['tipo_rol']);
+        $t_rol = $_REQUEST['tipo_rol'];
         $t_doc_pers = $_REQUEST['tipo_doc'];
         $num_doc_pers = $_REQUEST['num_doc_pers'];
-
-
 
         $t_rol =       mysqli_real_escape_string($conectar, $_POST['tipo_rol']);
         $t_doc_pers =       mysqli_real_escape_string($conectar, $_POST['tipo_doc']);
@@ -17,8 +28,6 @@
 
         $consulta = "SELECT * FROM personas WHERE t_doc_pers='$t_doc_pers' AND num_doc_pers='$num_doc_pers'
                      AND rol='$t_rol'";
-
-        
 
         $resultado = mysqli_query($conectar, $consulta) or die(mysqli_error);
 
@@ -55,6 +64,10 @@
                 header('Location: ../../view/administrador/gestion_usuarios/gestion_usuarios_alerta1.php');
             }
         }else{
+            $_SESSION['rol_new'] = $t_rol;
+            $_SESSION['doc_new'] = $t_doc_pers;
+            $_SESSION['num_doc_new'] = $num_doc_pers;
+            $_SESSION['estado_new'] = 1;
             header('Location: ../../view/administrador/gestion_usuarios/gestion_usuarios_alerta2.php');
         }
     };

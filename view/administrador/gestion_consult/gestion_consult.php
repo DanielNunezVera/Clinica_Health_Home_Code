@@ -7,7 +7,7 @@ include "../../../controller/sesiones/sesiones_admin.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Especialidades</title>
+    <title>Gestión Consultorios</title>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../assets/css/administrador-css/estilos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -45,15 +45,13 @@ include "../../../controller/sesiones/sesiones_admin.php";
         <div class="container__cover">
             <div class="cover"> 
                 <div class="caja3">
-                    <h1>Gestión Especialidades</h1>
+                    <h1>Consultorios</h1>
                     <div class="row">
                         <div class="col-lg-12">
                             <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Especialidad</th>
-                                        <th>Costo</th>
+                                        <th>Id_consultorio</th>
                                         <th>Estado</th>
                                         <th>Actualizacion</th>
                                         <th>Acción</th>
@@ -61,28 +59,22 @@ include "../../../controller/sesiones/sesiones_admin.php";
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Medicina general</td>
-                                        <td>$50.000</td>
+                                        <td>C01</td>
                                         <td>Activo</td>
                                         <td>2011/04/25</td>
-                                        <td><a href="update_espec.php">Editar</a></td>
+                                        <td><a href="update_consult.php">Editar</a></td>
                                     </tr>
                                     <tr>
-                                        <td>2</td>
-                                        <td>Odontologia</td>
-                                        <td>$70.000</td>
+                                        <td>C02</td>
                                         <td>Activo</td>
                                         <td>2011/04/25</td>
-                                        <td><a href="update_espec.php">Editar</a></td>
+                                        <td><a href="update_consult.php">Editar</a></td>
                                     </tr>
                                     <tr>
-                                        <td>3</td>
-                                        <td>Dermatologia</td>
-                                        <td>$60.000</td>
+                                        <td>C03</td>
                                         <td>Activo</td>
                                         <td>2011/04/25</td>
-                                        <td><a href="update_espec.php">Editar</a></td>
+                                        <td><a href="update_consult.php">Editar</a></td>
                                     </tr>
                                 </tbody>
                             </table>  
@@ -114,7 +106,7 @@ include "../../../controller/sesiones/sesiones_admin.php";
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function enviarform(){
-            window.location = "new_espec.php"
+            window.location = "new_consult.php"
         };
 
         $(document).ready(function() {

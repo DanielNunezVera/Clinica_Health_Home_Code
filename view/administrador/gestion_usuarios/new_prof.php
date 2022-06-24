@@ -43,14 +43,22 @@ include "../../../controller/sesiones/sesiones_admin.php";
                     <h1 class="titulo1">Nuevo profesional</h1>
                     <div class="contact-wrapper animated bounceInUp">
                         <div class="contact-form">
-                            <form action="" method="POST">
+                            <form action="../../../controller/administrador/new_users.php" method="POST">
                                 <p>
                                     <label>Tipo de documento</label>
-                                    <input type="text" name="t_doc" disabled>
+                                    <input type="text" name="t_doc" value=<?php if($_SESSION['doc_new'] == 'CC'){
+                                        echo 'Cedula&nbsp;de&nbsp;Ciudadania';
+                                    }elseif ($_SESSION['doc_new'] == 'TI') {
+                                        echo 'Tarjeta&nbsp;de&nbsp;Identidad';
+                                    }elseif ($_SESSION['doc_new'] == 'PAP') {
+                                        echo 'Pasaporte';
+                                    }elseif ($_SESSION['doc_new'] == 'CE') {
+                                        echo 'Cedula&nbsp;de&nbsp;Extranjeria';
+                                    }?> disabled>
                                 </p>
                                 <p>
                                     <label>N° documento</label>
-                                    <input type="number" name="num_doc" disabled>
+                                    <input type="number" name="num_doc" value=<?php echo intval($_SESSION['num_doc_new'])?> disabled>
                                 </p>
                                 <p>
                                     <label>Primer nombre</label>
@@ -78,22 +86,28 @@ include "../../../controller/sesiones/sesiones_admin.php";
                                 </p>
                                 <p>
                                     <label>Especialidad</label>
-                                    <select class="Selectorconsult" name="tipo_doc" id="tipo_doc">
-                                      <option >Seleccione</option>
-                                      <option value="mg">Medicina general</option>
-                                      <option value="od">Odontología</option>
-                                      <option value="pd">Pediatria</option>
-                                      <option value="gn">Ginecología</option>
+                                    <select class="Selectorconsult" name="espec" id="espec" required>
+                                      <option value="">Seleccione</option>
+                                      <?php 
+                                        include "../../../controller/conexion-db/db_connect.php";
+                                            $consulta = "SELECT * FROM especialidades";
+                                            $resultado = mysqli_query($conectar, $consulta);
+                                            while($fila = $resultado->fetch_array()){ ?>
+                                                <option value="<?php echo $fila['id_espec']; ?>"><?php echo $fila['descrip_espec']; ?></option>
+                                            <?php } ?>
                                     </select>
                                 </p>
                                 <p>
                                     <label>Consultorio</label>
-                                    <select class="Selectorconsult" name="tipo_doc" id="tipo_doc">
-                                      <option >Seleccione</option>
-                                      <option value="101">101</option>
-                                      <option value="102">102</option>
-                                      <option value="103">103</option>
-                                      <option value="104">104</option>
+                                    <select class="Selectorconsult" name="cons" id="cons" required>
+                                      <option value="">Seleccione</option>
+                                      <?php 
+                                        include "../../../controller/conexion-db/db_connect.php";
+                                            $consulta = "SELECT * FROM consultorios";
+                                            $resultado = mysqli_query($conectar, $consulta);
+                                            while($fila = $resultado->fetch_array()){ ?>
+                                                <option value="<?php echo $fila['id_consult']; ?>"><?php echo $fila['id_consult']; ?></option>
+                                            <?php } ?>
                                     </select>
                                 </p>
                                 <p class="block">

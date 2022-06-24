@@ -27,8 +27,7 @@ include "../../controller/sesiones/sesiones_pac.php";
                 <nav id="nav">
                     <img src="../assets/images/ajustes.png" alt="">
                     <ul>
-                        <li><a href="index_pac.php">Inicio</a></li>
-                        <li><a href="../Update patient admin/update_patient_admin.php">Actualizar datos</a></li>
+                        <li><a href="index_pac.php" >Inicio</a></li>
                         <li><a href="../../controller/sesiones/cerrarsesion.php">Cerrar sesion</a></li>
                     </ul>
                 </nav>
@@ -41,18 +40,18 @@ include "../../controller/sesiones/sesiones_pac.php";
                 <div class="caja1">
                     <div class="row">
                         <h1>Bienvenido - <?php echo $_SESSION['p_nombre_pers'], $_SESSION['p_apellido_pers']?></h1>
-                        <a href="" class="boton">Agendar Cita</a>
+                        <a href="" class="boton">Gestión Usuarios</a>
                         <br>
-                        <a href="" class="boton">Citas Agendadas</a>
-                        <!-- <br>
+                        <a href="" class="boton">Gestión Especialidades</a>
+                        <br>
                         <a href="" class="boton">Gestión Consultorios</a>
                         <br>
                         <a href="" class="boton">Gestión Agenda</a>
-                        <br> -->
+                        <br>
                     </div>
                 </div>
                 <div class="caja2">
-                    <img src="../assets/images/mas-pacientes-tijuana.png" alt="">
+                    <img src="../assets/images/pngwing.com.png" alt="">
                 </div> 
             </div> 
         </div>

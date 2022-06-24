@@ -18,7 +18,7 @@
         //CREAR UNA CONSULTA PARA SABER SI LOS DATOS SON CORRECTOS:
         if($t_rol=="4"){
             $consulta = "SELECT * FROM admin_sistema WHERE user='$num_doc_pers'
-            AND pass='$password'";
+            AND pass='$password' AND rol='$t_rol'";
         }else{
             $consulta = "SELECT * FROM personas WHERE t_doc_pers='$t_doc_pers' AND num_doc_pers='$num_doc_pers'
             AND pass='$password' AND rol='$t_rol'";

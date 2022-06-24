@@ -109,6 +109,4 @@ function recuperarcontraseña() {
 		  })
 		}
 	  })
-
-
 }

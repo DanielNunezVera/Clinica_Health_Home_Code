@@ -43,29 +43,37 @@ include "../../../controller/sesiones/sesiones_admin.php";
                     <h1 class="titulo1">Nuevo paciente</h1>
                     <div class="contact-wrapper animated bounceInUp">
                         <div class="contact-form">
-                            <form action="" method="POST">
+                            <form action="../../../controller/administrador/new_users.php" method="POST">
                                 <p>
-                                    <label>Tipo de documento</label>
-                                    <input type="text" name="t_doc" disabled>
+                                    <label>Tipo doc</label>
+                                    <input type="text" name="t_doc" value=<?php if($_SESSION['doc_new'] == 'CC'){
+                                        echo 'Cedula&nbsp;de&nbsp;Ciudadania';
+                                    }elseif ($_SESSION['doc_new'] == 'TI') {
+                                        echo 'Tarjeta&nbsp;de&nbsp;Identidad';
+                                    }elseif ($_SESSION['doc_new'] == 'PAP') {
+                                        echo 'Pasaporte';
+                                    }elseif ($_SESSION['doc_new'] == 'CE') {
+                                        echo 'Cedula&nbsp;de&nbsp;Extranjeria';
+                                    }?> disabled>
                                 </p>
                                 <p>
                                     <label>N° documento</label>
-                                    <input type="number" name="num_doc" disabled>
+                                    <input type="number" name="num_doc" value=<?php echo intval($_SESSION['num_doc_new'])?> disabled>
                                 </p>
                                 <p>
-                                    <label>Primer nombre</label>
+                                    <label>1° nombre</label>
                                     <input type="text" name="p_nombre" required>
                                 </p>
                                 <p>
-                                    <label>Segundo nombre</label>
+                                    <label>2° nombre</label>
                                     <input type="text" name="s_nombre">
                                 </p>
                                 <p>
-                                    <label>Primer apellido</label>
+                                    <label>1° apellido</label>
                                     <input type="text" name="p_apellido" required>
                                 </p>
                                 <p>
-                                    <label>Segundo apellido</label>
+                                    <label>2° apellido</label>
                                     <input type="text" name="s_apellido">
                                 </p>
                                 <p>
@@ -80,6 +88,15 @@ include "../../../controller/sesiones/sesiones_admin.php";
                                     <label>Fecha de nacimiento</label>
                                     <input type="date" name="f_nacimiento" required>
                                 </p>
+                                <p>
+                                    <label>Genero</label>
+                                    <select class="Selectorconsult" name="genero" id="genero" required>
+                                    <option value="">Seleccione</option>
+                                        <option value="F">Femenino</option>
+                                        <option value="M">Masculino</option>
+                                    </select>
+                                </p>
+                                <p>
                                 <p class="block">
                                     <button name="registrar" type="submit">
                                         Registrar
