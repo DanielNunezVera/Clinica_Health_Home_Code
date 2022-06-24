@@ -1,4 +1,4 @@
-CREATE DATABASE db_clinica_healt_home;
+CREATE DATABASE clinica_health_home;
 
 CREATE TABLE `admin_sistema` (
   `user` varchar(15) NOT NULL,
